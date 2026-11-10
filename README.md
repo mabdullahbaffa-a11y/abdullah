@@ -18,6 +18,324 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
+  /* ================================
+   GLOBAL VARIABLES & STYLES
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #ffffff;
+  --yellow: #fcc419;
+  --yellow-hover: #f59f00;
+  --grey-bg: #f3f4f6;
+  --text-dark: #111827;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+.text-yellow { color: var(--yellow) !important; }
+.section-bg-grey { background-color: var(--grey-bg); }
+.tracking-wide { letter-spacing: 2px; }
+
+/* ================================
+   BUTTONS
+================================ */
+.btn-yellow {
+  background-color: var(--yellow);
+  color: var(--text-dark);
+  border: 2px solid var(--yellow);
+  transition: all 0.3s ease;
+}
+
+.btn-yellow:hover {
+  background-color: transparent;
+  color: var(--text-dark);
+  border-color: var(--yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(252, 196, 25, 0.3);
+}
+
+/* ================================
+   NAVBAR
+================================ */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+.navbar-brand span { color: var(--yellow); }
+
+.custom-navbar .nav-link {
+  color: var(--text-dark) !important;
+  font-weight: 600;
+  padding: 10px 15px !important;
+  transition: color 0.3s;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: var(--yellow) !important;
+}
+
+/* ================================
+   SECTIONS COMMON
+================================ */
+section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.section-heading {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-dark);
+}
+
+/* ================================
+   HOME SECTION
+================================ */
+.home-section {
+  min-height: 100vh;
+  padding-top: 100px;
+  background: radial-gradient(circle at center, #ffffff 0%, #fdfbf7 100%);
+}
+
+.badge-custom {
+  background: rgba(252, 196, 25, 0.15);
+  color: var(--yellow-hover);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid rgba(252, 196, 25, 0.3);
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+
+.hero-desc {
+  max-width: 700px;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ================================
+   ABOUT SECTION
+================================ */
+.about-img-box img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: cover;
+}
+
+.info-box {
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+  border-color: var(--yellow);
+}
+
+/* ================================
+   SKILLS SECTION
+================================ */
+.skill-card {
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--yellow);
+  box-shadow: 0 15px 30px rgba(252, 196, 25, 0.15) !important;
+}
+
+.skill-icon {
+  font-size: 4rem;
+  display: block;
+}
+
+/* ================================
+   SERVICES SECTION
+================================ */
+.service-card {
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+  border-bottom: 4px solid var(--yellow);
+}
+
+/* ================================
+   PROJECTS SECTION
+================================ */
+.project-img {
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card {
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* ================================
+/* ================================
+   JOURNEY SECTION (Replaced Experience)
+================================ */
+.journey-card {
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(252, 196, 25, 0.15) !important;
+  border-color: var(--yellow) !important;
+}
+
+.icon-box {
+  transition: all 0.3s ease;
+}
+
+.journey-card:hover .icon-box {
+  background-color: var(--yellow) !important;
+  color: var(--white) !important;
+  transform: scale(1.1);
+}
+
+
+/* ================================
+   CONTACT SECTION
+================================ */
+.contact-wrap {
+  border: 1px solid var(--border-color);
+}
+
+.custom-input {
+  background-color: var(--grey-bg);
+  border: 1px solid transparent;
+  color: var(--text-dark);
+  border-radius: 10px;
+  padding: 18px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.custom-input:focus {
+  background-color: var(--white);
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(252, 196, 25, 0.15);
+}
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+  background-color: var(--white) !important;
+}
+.footer a.btn-light {
+  background-color: var(--grey-bg);
+  transition: all 0.3s;
+}
+.footer a.btn-light:hover {
+  background-color: var(--yellow);
+  transform: translateY(-5px);
+}
+
+/* ================================
+   RESPONSIVE MEDIA QUERIES
+================================ */
+@media (max-width: 1200px) {
+  .hero-title { font-size: 4rem; }
+}
+
+@media (max-width: 991px) {
+  section { padding: 90px 0; }
+  .hero-title { font-size: 3.5rem; }
+  .section-title { font-size: 2.5rem; }
+  
+  .navbar-collapse {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-top: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+}
+
+@media (max-width: 768px) {
+  section { padding: 80px 0; }
+  .hero-title { font-size: 2.8rem; }
+  .hero-desc { font-size: 1.1rem; }
+  .section-title { font-size: 2.2rem; }
+  .project-img { height: 250px; }
+  .contact-wrap { padding: 30px !important; }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 2.2rem; }
+  .btn-lg { padding: 12px 25px; font-size: 1rem; }
+  .hero-desc { font-size: 1rem; }
+  .section-title { font-size: 1.8rem; }
+  .skill-icon { font-size: 3rem; }
+  .skill-card { padding: 20px 10px !important; }
+  .timeline::before { display: none; }
+  .timeline-item { margin-left: 0; }
+}
+</style>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
 
   <!-- ================= NAVBAR ================= -->
@@ -438,5 +756,56 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
+  <script>
+    // AOS Animation Init
+AOS.init({
+  duration: 800,
+  offset: 100,
+  once: true,
+});
+
+// Navbar Scroll Effect
+const navbar = document.querySelector('.custom-navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.style.padding = '10px 0';
+    navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+  } else {
+    navbar.style.padding = '20px 0';
+    navbar.style.boxShadow = 'none';
+  }
+});
+
+// Mobile Menu Close on Click
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      new bootstrap.Collapse(navbarCollapse).hide();
+    }
+  });
+});
+
+// Contact Form Validation (Demo)
+const contactForm = document.getElementById('contactForm');
+const formAlert = document.getElementById('formAlert');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Yahan aap actual backend API laga sakte hain
+    formAlert.innerHTML = '<div class="alert alert-success bg-white border-success text-success mt-3 shadow-sm rounded-3">Message sent successfully! I will get back to you soon.</div>';
+    contactForm.reset();
+
+    setTimeout(() => {
+      formAlert.innerHTML = '';
+    }, 5000);
+  });
+}
+
+// Dynamic Year in Footer
+document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
